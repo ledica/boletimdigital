@@ -1,0 +1,44 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "21.1.2"
+    defaultConfig {
+        applicationId 'br.com.boletimdigital'
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        manifestPlaceholders = [manifestApplicationId          : "${applicationId}",
+                                onesignal_app_id               : "140533cb-d772-478e-8bac-090b3b22e6c2",
+                                onesignal_google_project_number: "492985472043"]
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    productFlavors {
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.android.support:design:23.4.0'
+    compile 'com.android.support:support-v4:23.4.0'
+    testCompile 'junit:junit:4.12'
+    compile 'com.google.android.gms:play-services:8.1.0'
+    compile 'com.google.android.gms:play-services-ads:8.1.0'
+    compile 'com.google.android.gms:play-services-identity:8.1.0'
+    compile 'com.google.android.gms:play-services-gcm:8.1.0'
+    compile 'com.onesignal:OneSignal:2.+@aar'
+    compile 'com.google.android.gms:play-services-analytics:8.1.0'
+    compile 'com.google.android.gms:play-services-location:8.1.0'
+}

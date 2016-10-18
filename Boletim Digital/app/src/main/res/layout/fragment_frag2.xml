@@ -1,0 +1,55 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="layout.Frag2">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <EditText
+        android:id="@+id/txtNomec"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="Nome"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/txtSobrenome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Sobrenome"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/txtUsuarioc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Usuário"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/txtSenhac"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Senha"
+        android:inputType="textPassword"
+        android:selectAllOnFocus="false" />
+
+    <Button
+        android:id="@+id/btCadastrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:onClick="cadastrarUsuario"
+        android:text="Cadastrar" />
+
+</LinearLayout>
