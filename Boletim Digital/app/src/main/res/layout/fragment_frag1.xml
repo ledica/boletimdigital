@@ -1,43 +1,59 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="layout.Frag1"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:weightSum="1">
 
     <!-- TODO: Update blank fragment layout -->
-    <EditText
+
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
+        app:srcCompat="@drawable/icon"
+        android:id="@+id/imageView2"
+        android:layout_marginTop="30dp" />
+
+    <com.github.pinball83.maskededittext.MaskedEditText
+        android:layout_height="wrap_content"
+        android:inputType="number"
         android:ems="10"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/txtNome"
-        android:hint="Usuário"
-        android:layout_marginTop="20dp" />
+        android:id="@+id/txtCpf"
+        android:layout_marginTop="50dp"
+        android:hint="CPF"
+        android:drawableLeft="@drawable/avatar"
+        android:selectAllOnFocus="false"
+        android:gravity="left"
+        android:maxLength="15"
+        android:layout_gravity="center"
+        android:layout_width="250dp"
+        android:breakStrategy="high_quality"
+        android:elegantTextHeight="true"
+        android:freezesText="false"
+        app:mask="###.###.###-##"
+        app:notMaskedSymbol="#"/>
 
     <EditText
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
-        android:layout_marginTop="35dp"
         android:id="@+id/txtSenha"
-        android:layout_below="@+id/txtNome"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:hint="Senha" />
+        android:layout_marginTop="20dp"
+        android:hint="Senha"
+        android:drawableLeft="@drawable/lock"
+        android:gravity="left"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="250dp"
+        android:password="true" />
 
     <Button
         android:text="Acessar"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtSenha"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="53dp"
-        android:id="@+id/btOk"
-        android:elevation="2dp"
-        android:onClick="logar" />
-
+        android:id="@+id/button"
+        android:layout_marginTop="20dp"
+        android:onClick="logar"
+        android:layout_gravity="center"
+        android:layout_width="250dp" />
 </LinearLayout>

@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Boletim Digital</string>
-    <string name="action_settings">Sair</string>
+    <string name="action_email">Contato</string>
+    <string name="action_sair">Sair</string>
     <string name="section_format">Hello World from section: %1$d</string>
 
     <!-- TODO: Remove or change this placeholder text -->

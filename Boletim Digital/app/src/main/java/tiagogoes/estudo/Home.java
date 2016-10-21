@@ -49,7 +49,7 @@ public class Home extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_sair) {
             finish();
             return true;
         }
@@ -64,12 +64,14 @@ public class Home extends AppCompatActivity {
             senha = (EditText) findViewById(R.id.txtSenha);
 
             String userNome = cpf.getText().toString();
+            userNome = userNome.replace(".","").replace("-","");
             String userSenha = senha.getText().toString();
             tipo = "login";
 
             if (userNome.equals("") || userSenha.equals("")) {
                 exibeMsg("Informe o usuário e a senha!");
             } else {
+                Log.i("MSG",userNome);
                 Service service = new Service(this);
                 service.execute(tipo, userNome, userSenha);
             }

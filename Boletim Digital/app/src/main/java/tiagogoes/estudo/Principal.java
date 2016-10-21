@@ -1,6 +1,7 @@
 package tiagogoes.estudo;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -26,8 +27,10 @@ import org.json.JSONObject;
 
 public class Principal extends AppCompatActivity {
 
-    EditText nome, senha, nomec, sobrenome, usuario, senhac;
+    EditText cpf, senha;
+    static final String token = "hXangk0TQA";
     String tipo;
+
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a
@@ -98,7 +101,9 @@ public class Principal extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_email) {
+            enviarEmail();
+        }else if(id == R.id.action_sair){
             finish();
             return true;
         }
@@ -109,16 +114,18 @@ public class Principal extends AppCompatActivity {
     public void logar(View v) {
 
         if (networkConnectivity(this)) {
-            nome = (EditText) findViewById(R.id.txtNome);
+            cpf = (EditText) findViewById(R.id.txtCpf);
             senha = (EditText) findViewById(R.id.txtSenha);
 
-            String userNome = nome.getText().toString();
+            String userNome = cpf.getText().toString();
+            userNome = userNome.replace(".","").replace("-","");
             String userSenha = senha.getText().toString();
             tipo = "login";
 
             if (userNome.equals("") || userSenha.equals("")) {
                 exibeMsg("Informe o usuário e a senha!");
             } else {
+                Log.i("MSG",userNome);
                 Service service = new Service(this);
                 service.execute(tipo, userNome, userSenha);
             }
@@ -127,33 +134,20 @@ public class Principal extends AppCompatActivity {
         }
     }
 
-    public void cadastrarUsuario(View v) {
-        if (networkConnectivity(this)) {
-            nomec = (EditText) findViewById(R.id.txtNomec);
-            sobrenome = (EditText) findViewById(R.id.txtSobrenome);
-            usuario = (EditText) findViewById(R.id.txtUsuarioc);
-            senhac = (EditText) findViewById(R.id.txtSenhac);
-            tipo = "cadastro";
-
-            String nomecad = nomec.getText().toString();
-            String sobrenomecad = sobrenome.getText().toString();
-            String usuariocad = usuario.getText().toString();
-            String senhacad = senhac.getText().toString();
-
-            if (nomecad.equals("") || sobrenomecad.equals("") || usuariocad.equals("") || senhacad.equals("")) {
-                exibeMsg("Preencha todos os campos para efetuar o cadastro!");
-            } else {
-                Service service = new Service(this);
-                service.execute(tipo, nomecad, sobrenomecad, usuariocad, senhacad);
-            }
-        } else {
-            exibeMsg("Verifique sua conexão com a internet!");
+    public void enviarEmail(){
+        Intent i = new Intent(Intent.ACTION_SEND);
+        i.setType("message/rfc822");
+        i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"recipient@example.com"});
+        i.putExtra(Intent.EXTRA_SUBJECT, "Assunto");
+        i.putExtra(Intent.EXTRA_TEXT   , "Mensagem");
+        try {
+            startActivity(Intent.createChooser(i, "Enviando..."));
+        } catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(Principal.this, "Não há nenhum aplicativo de email instalado.", Toast.LENGTH_SHORT).show();
         }
     }
 
-    public void exibeMsg(String msg) {
-        Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
-    }
+
 
     /**
      * A placeholder fragment containing a simple view.
@@ -223,10 +217,15 @@ public class Principal extends AppCompatActivity {
                 case 0:
                     return "Login";
                 case 1:
-                    return "cadastrar";
+                    return "Dúvidas";
             }
             return null;
         }
+    }
+
+
+    public void exibeMsg(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
     }
 
     //Metodo que verifica a conexao com a internet
