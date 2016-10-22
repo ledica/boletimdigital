@@ -1,59 +1,25 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="layout.Frag1"
-    android:orientation="vertical"
-    android:weightSum="1">
+    android:fitsSystemWindows="true"
+    tools:openDrawer="right">
 
-    <!-- TODO: Update blank fragment layout -->
-
-    <ImageView
+    <include
+        layout="@layout/app_bar_home"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/icon"
-        android:id="@+id/imageView2"
-        android:layout_marginTop="30dp" />
+        android:layout_height="match_parent" />
 
-    <com.github.pinball83.maskededittext.MaskedEditText
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/txtCpf"
-        android:layout_marginTop="50dp"
-        android:hint="CPF"
-        android:drawableLeft="@drawable/avatar"
-        android:selectAllOnFocus="false"
-        android:gravity="left"
-        android:maxLength="15"
-        android:layout_gravity="center"
-        android:layout_width="250dp"
-        android:breakStrategy="high_quality"
-        android:elegantTextHeight="true"
-        android:freezesText="false"
-        app:mask="###.###.###-##"
-        app:notMaskedSymbol="#"/>
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header_home"
+        app:menu="@menu/activity_homee_drawer"/>
 
-    <EditText
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/txtSenha"
-        android:layout_marginTop="20dp"
-        android:hint="Senha"
-        android:drawableLeft="@drawable/lock"
-        android:gravity="left"
-        android:layout_gravity="center_horizontal"
-        android:layout_width="250dp"
-        android:password="true" />
-
-    <Button
-        android:text="Acessar"
-        android:layout_height="wrap_content"
-        android:id="@+id/button"
-        android:layout_marginTop="40dp"
-        android:onClick="logar"
-        android:layout_gravity="center"
-        android:layout_width="250dp" />
-</LinearLayout>
+</android.support.v4.widget.DrawerLayout>

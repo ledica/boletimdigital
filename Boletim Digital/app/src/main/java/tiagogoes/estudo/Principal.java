@@ -18,6 +18,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -63,21 +64,13 @@ public class Principal extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-/*
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-*/
+
         if (!networkConnectivity(this)) {
             Toast.makeText(this, "Verifique sua conexão com a internet!", Toast.LENGTH_LONG).show();
         }
 
-        //OneSignal.startInit(this).setNotificationOpenedHandler(new ExampleNotificationOpenedHandler()).init();
+        OneSignal.startInit(this).setNotificationOpenedHandler(new ExampleNotificationOpenedHandler()).init();
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
     }
 
     @Override
@@ -137,11 +130,10 @@ public class Principal extends AppCompatActivity {
     public void enviarEmail(){
         Intent i = new Intent(Intent.ACTION_SEND);
         i.setType("message/rfc822");
-        i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"recipient@example.com"});
-        i.putExtra(Intent.EXTRA_SUBJECT, "Assunto");
-        i.putExtra(Intent.EXTRA_TEXT   , "Mensagem");
+        i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"tiago.goes2009@hotmail.com"});
+        i.putExtra(Intent.EXTRA_SUBJECT, "Boletim Digital Recuperar Senha");
         try {
-            startActivity(Intent.createChooser(i, "Enviando..."));
+            startActivity(Intent.createChooser(i, "Enviar E-mail..."));
         } catch (android.content.ActivityNotFoundException ex) {
             Toast.makeText(Principal.this, "Não há nenhum aplicativo de email instalado.", Toast.LENGTH_SHORT).show();
         }

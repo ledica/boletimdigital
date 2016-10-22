@@ -7,49 +7,31 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-
-    <EditText
-        android:id="@+id/txtNomec"
+    <TextView
+        android:text="Dúvidas Frequentes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:hint="Nome"
-        android:inputType="textPersonName" />
+        android:id="@+id/textView"
+        android:textSize="36sp"
+        android:textStyle="normal|bold"
+        android:gravity="center" />
 
-    <EditText
-        android:id="@+id/txtSobrenome"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="Sobrenome"
-        android:inputType="textPersonName" />
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp">
 
-    <EditText
-        android:id="@+id/txtUsuarioc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="Usuário"
-        android:inputType="textPersonName" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
-    <EditText
-        android:id="@+id/txtSenhac"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="Senha"
-        android:inputType="textPassword"
-        android:selectAllOnFocus="false" />
-
-    <Button
-        android:id="@+id/btCadastrar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:onClick="cadastrarUsuario"
-        android:text="Cadastrar" />
-
+            <TextView
+                android:text="O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  O que é Boletim Digital?  Como conseguir um acesso?  "
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView2"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

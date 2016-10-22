@@ -2,6 +2,7 @@ package tiagogoes.estudo;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
@@ -18,7 +19,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
-import static tiagogoes.estudo.Home.token;
+import static tiagogoes.estudo.Principal.token;
 
 /**
  * Created by Tiago on 27/09/2016.
@@ -146,8 +147,7 @@ public class Service extends AsyncTask<String, Void, String> {
         dialog.dismiss();
         if (tipo.equalsIgnoreCase("login")) {
             if (aVoid.equalsIgnoreCase("true")) {
-                //context.startActivity(new Intent(context, Home.class));
-                Toast.makeText(context, "Login OK!", Toast.LENGTH_SHORT).show();
+                context.startActivity(new Intent(context,Home.class));
             } else {
                 Toast.makeText(context, "Usuário ou senha incorretos!", Toast.LENGTH_SHORT).show();
             }
